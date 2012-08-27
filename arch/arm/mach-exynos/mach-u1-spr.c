@@ -2423,12 +2423,12 @@ static void __init ld9040_fb_init(void)
 	spi_board_info[0].platform_data = (void *)&ld9040_platform_data;
 
 	lcdtype = max(ld9040_lcdtype, lcdtype);
-#if !defined(CONFIG_PANEL_U1_NA_SPR)
+//#if !defined(CONFIG_PANEL_U1_NA_SPR)
 	if (lcdtype == LCDTYPE_SM2_A2)
 		ld9040_platform_data.pdata = &u1_panel_data_a2;
 	else if (lcdtype == LCDTYPE_M2)
 		ld9040_platform_data.pdata = &u1_panel_data_m2;
-#endif
+//#endif
 
 	pdata = ld9040_platform_data.pdata;
 	pdata->ops = &ops;
@@ -3267,7 +3267,7 @@ static void max8997_muic_mhl_cb(int attached)
 
 	if (attached == MAX8997_MUIC_ATTACHED) {
 #ifdef	CONFIG_SAMSUNG_MHL
-	//	sii9234_mhl_detection_sched();
+		sii9234_mhl_detection_sched();
 #endif
 	}
 }
